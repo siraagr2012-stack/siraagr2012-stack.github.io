@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>★ DIARIO — SIRA ★</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Patrick+Hand&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #24104d,
+            #8b205d 25%,
+            #e4413c 50%,
+            #ff9345 70%,
+            #351442 100%
+        );
+
+    background-attachment: fixed;
+
+    color: #190812;
+
+}
+
+
+.pagina {
+
+    width: 94%;
+
+    max-width: 1000px;
+
+    margin: 25px auto 60px;
+
+}
+
+
+/* CABECERA */
+
+.cabecera {
+
+    position: relative;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background: #ed183c;
+
+    border: 5px solid #170912;
+
+    box-shadow: 10px 10px 0 #170912;
+
+}
+
+
+.cabecera h1 {
+
+    margin: 0;
+
+    color: #120812;
+
+    font-family: Impact, "Arial Black", sans-serif;
+
+    font-size: clamp(55px, 12vw, 110px);
+
+    font-style: italic;
+
+    transform: rotate(-3deg);
+
+    text-shadow:
+        5px 5px 0 #ff9b43,
+        10px 10px 0 #170912;
+}
+
+
+.cabecera p {
+
+    margin-bottom: 0;
+
+    color: white;
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 20px;
+
+}
+
+
+/* MENÚ */
+
+.menu {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin: 25px 0;
+
+}
+
+
+.menu a {
+
+    padding: 8px 15px;
+
+    background: #170912;
+
+    color: white;
+
+    border: 3px solid #ff4264;
+
+    text-decoration: none;
+
+    font-family: "Permanent Marker", cursive;
+
+    box-shadow: 4px 4px 0 #ffb83e;
+
+}
+
+
+.menu a:hover {
+
+    background: #ed183c;
+
+    transform: rotate(-2deg);
+
+}
+
+
+/* ENTRADAS */
+
+.entrada {
+
+    position: relative;
+
+    margin-bottom: 30px;
+
+    padding: 25px;
+
+    background: #fff0c2;
+
+    border: 4px solid #170912;
+
+    box-shadow: 8px 8px 0 #170912;
+
+}
+
+
+.entrada:nth-child(even) {
+
+    background: #ffd4df;
+
+    transform: rotate(.5deg);
+
+}
+
+
+.fecha {
+
+    color: #8d236c;
+
+    font-family: monospace;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+.entrada h2 {
+
+    margin-top: 8px;
+
+    color: #d7193f;
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 28px;
+
+}
+
+
+.entrada p {
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+/* FOTOS */
+
+.fotos {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+}
+
+
+.fotos img {
+
+    width: 230px;
+
+    max-width: 100%;
+
+    padding: 7px;
+
+    background: white;
+
+    border: 4px solid #170912;
+
+    box-shadow: 5px 5px 0 #170912;
+
+}
+
+
+.fotos img:nth-child(odd) {
+
+    transform: rotate(-3deg);
+
+}
+
+
+.fotos img:nth-child(even) {
+
+    transform: rotate(3deg);
+
+}
+
+
+/* DECORACIÓN */
+
+.estrellita {
+
+    position: absolute;
+
+    color: #e71945;
+
+    font-size: 35px;
+
+}
+
+
+.estrellita1 {
+
+    top: 10px;
+
+    right: 15px;
+
+    transform: rotate(15deg);
+
+}
+
+
+.estrellita2 {
+
+    bottom: 10px;
+
+    left: 15px;
+
+    color: #6b35c7;
+
+}
+
+
+/* BOTÓN VOLVER */
+
+.volver {
+
+    display: block;
+
+    width: fit-content;
+
+    margin: 30px auto;
+
+    padding: 10px 18px;
+
+    background: #ffe348;
+
+    color: #170912;
+
+    border: 3px solid #170912;
+
+    box-shadow: 5px 5px 0 #170912;
+
+    text-decoration: none;
+
+    font-family: "Permanent Marker", cursive;
+
+}
+
+
+footer {
+
+    padding: 20px;
+
+    text-align: center;
+
+    color: white;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="pagina">
+
+
+<header class="cabecera">
+
+    <h1>DIARIO</h1>
+
+    <p>
+        pensamientos, recuerdos y pequeños momentos ★
+    </p>
+
+</header>
+
+
+<nav class="menu">
+
+    <a href="index.html">INICIO</a>
+
+    <a href="diario.html">DIARIO</a>
+
+    <a href="musica.html">MÚSICA</a>
+
+    <a href="arte.html">ARTE</a>
+
+    <a href="sobre-mi.html">SOBRE MÍ</a>
+
+</nav>
+
+
+<!-- =====================================
+     ENTRADA 1
+===================================== -->
+
+<article class="entrada">
+
+    <div class="estrellita estrellita1">
+        ★
+    </div>
+
+    <div class="estrellita estrellita2">
+        ✦
+    </div>
+
+
+    <div class="fecha">
+        30 / 08 / 2026
+    </div>
+
+
+    <h2>
+        ★ MI PRIMERA ENTRADA ★
+    </h2>
+
+
+    <p>
+        Este es mi diario de internet.
+        Aquí puedo escribir absolutamente
+        lo que quiera.
+    </p>
+
+
+    <p>
+        Hoy estoy empezando a construir
+        mi propia página y quiero ir
+        llenándola poco a poco de recuerdos,
+        pensamientos, dibujos y momentos.
+    </p>
+
+
+    <!-- FOTOS DE ESTA ENTRADA -->
+
+    <div class="fotos">
+
+        <!--
+        PARA AÑADIR UNA FOTO:
+
+        <img src="images/NOMBRE-DE-TU-FOTO.jpg"
+        alt="Descripción de la foto">
+        -->
+
+    </div>
+
+</article>
+
+
+<!-- =====================================
+     AQUÍ PUEDES COPIAR ENTRADAS NUEVAS
+===================================== -->
+
+<article class="entrada">
+
+    <div class="fecha">
+        FECHA
+    </div>
+
+
+    <h2>
+        ★ TÍTULO DE LA ENTRADA ★
+    </h2>
+
+
+    <p>
+        Escribe aquí lo que quieras.
+        Puedes hacer varios párrafos.
+    </p>
+
+
+    <p>
+        Este espacio es completamente tuyo.
+    </p>
+
+
+    <div class="fotos">
+
+        <!--
+        AÑADE TUS FOTOS AQUÍ
+
+        <img src="images/mi-foto.jpg"
+        alt="Mi recuerdo">
+
+        -->
+
+    </div>
+
+</article>
+
+
+<a class="volver" href="index.html">
+    ★ VOLVER A INICIO ★
+</a>
+
+
+<footer>
+
+    made somewhere between a sunset and midnight
+
+    <br><br>
+
+    ♥ SIRA ♥
+
+</footer>
+
+
+</div>
+
+
+</body>
+
+</html>
