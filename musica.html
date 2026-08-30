@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>★ SIRA ★</title>
+<title>★ SIRA ★ MÚSICA</title>
 
 <style>
 
@@ -55,7 +56,7 @@ body {
 
 
 /* ================================
-   ESTRELLAS DEL FONDO
+   ESTRELLAS
 ================================ */
 
 .estrellas {
@@ -96,7 +97,7 @@ body {
 
 
 /* ================================
-   CONTENEDOR PRINCIPAL
+   CONTENEDOR
 ================================ */
 
 .pagina {
@@ -110,7 +111,6 @@ body {
     max-width: 1050px;
 
     margin: 25px auto 50px;
-
 }
 
 
@@ -147,7 +147,7 @@ body {
 }
 
 
-/* manchas */
+/* MANCHAS */
 
 .cabecera .mancha {
 
@@ -201,7 +201,7 @@ body {
 
 
 /* ================================
-   GRAFFITI
+   NOMBRE
 ================================ */
 
 .nombre {
@@ -224,7 +224,7 @@ body {
 
     letter-spacing: -8px;
 
-    color:#120812;
+    color: #120812;
 
     text-shadow:
 
@@ -268,7 +268,7 @@ body {
 
 
 /* ================================
-   GRAFFITIS DECORATIVOS
+   TAGS
 ================================ */
 
 .tag {
@@ -285,7 +285,6 @@ body {
 .tag1 {
 
     left: 20px;
-
     top: 20px;
 
     color: #54e0ff;
@@ -296,7 +295,6 @@ body {
 .tag2 {
 
     right: 20px;
-
     top: 95px;
 
     color: #ffe047;
@@ -307,7 +305,6 @@ body {
 .tag3 {
 
     left: 30px;
-
     bottom: 30px;
 
     color: #ff3e72;
@@ -340,7 +337,6 @@ body {
 .pegatina1 {
 
     right: 25px;
-
     bottom: 25px;
 
     background: #54d9ff;
@@ -351,7 +347,6 @@ body {
 .pegatina2 {
 
     left: 25px;
-
     top: 155px;
 
     background: #ffef55;
@@ -362,7 +357,6 @@ body {
 .pegatina3 {
 
     right: 90px;
-
     top: 20px;
 
     background: #ff3b65;
@@ -539,9 +533,28 @@ body {
     text-align: center;
 }
 
+.contador {
+
+    margin-top: 15px;
+
+    font-family: monospace;
+
+    background: #180813;
+
+    color: #53dfff;
+
+    padding: 6px;
+
+    border: 2px solid #53dfff;
+
+    text-align: center;
+
+    font-size: 11px;
+}
+
 
 /* ================================
-   CAJAS PRINCIPALES
+   CAJAS
 ================================ */
 
 .caja {
@@ -588,83 +601,367 @@ body {
 
 
 /* ================================
-   ENTRADA DEL DIARIO
+   ARTISTAS
 ================================ */
 
-.entrada {
+.artistas {
 
-    padding: 15px;
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.artista {
+
+    padding: 12px;
 
     background: white;
 
-    border: 3px dashed #d7193f;
+    border: 3px solid #170912;
 
-    transform: rotate(-.5deg);
+    box-shadow: 5px 5px 0 #170912;
+
+    transition: .2s;
 }
 
-.fecha {
+.artista:hover {
 
-    color: #8c236d;
-
-    font-size: 11px;
-
-    font-weight: bold;
+    transform: rotate(-2deg) scale(1.03);
 }
 
-.entrada h3 {
+.artista:nth-child(2) {
 
-    color: #e52340;
+    background: #fff17a;
+}
+
+.artista:nth-child(3) {
+
+    background: #8deaff;
+}
+
+.artista:nth-child(4) {
+
+    background: #ff9fbd;
+}
+
+.artista-img {
+
+    width: 100%;
+
+    height: 150px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #6c1c81,
+            #ed294d,
+            #ff9c3d
+        );
+
+    border: 3px solid #170912;
+
+    color: white;
 
     font-family: "Permanent Marker", cursive;
+
+    font-size: 25px;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.artista-img img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.artista h3 {
+
+    margin: 12px 0 4px;
+
+    font-family: "Permanent Marker", cursive;
+
+    color: #d7193f;
 
     font-size: 20px;
 }
 
+.artista p {
+
+    margin: 0;
+
+    font-size: 11px;
+}
+
 
 /* ================================
-   COSAS RANDOM
+   ÁLBUMES
 ================================ */
 
-.random {
+.albumes {
 
     display: flex;
 
     flex-wrap: wrap;
 
-    gap: 10px;
+    gap: 18px;
+
+    justify-content: center;
 }
 
-.random span {
+.album {
 
-    padding: 9px 13px;
+    width: 130px;
+
+    padding: 8px;
+
+    background: white;
 
     border: 3px solid #170912;
 
-    box-shadow: 3px 3px 0 #170912;
+    box-shadow: 5px 5px 0 #170912;
+
+    transform: rotate(-2deg);
+}
+
+.album:nth-child(even) {
+
+    transform: rotate(2deg);
+
+    background: #fff47c;
+}
+
+.album img {
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    display: block;
+
+    border: 2px solid #170912;
+}
+
+.album .portada {
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #24104d,
+            #c52d45,
+            #ff9a45
+        );
+
+    border: 2px solid #170912;
+
+    color: white;
 
     font-family: "Permanent Marker", cursive;
+
+    text-align: center;
+
+    font-size: 13px;
 }
 
-.random span:nth-child(1) {
-    background: #ff476c;
+.album h4 {
+
+    margin: 8px 0 2px;
+
+    font-family: "Permanent Marker", cursive;
+
+    color: #d7193f;
+
+    font-size: 13px;
 }
 
-.random span:nth-child(2) {
-    background: #53dfff;
-}
+.album small {
 
-.random span:nth-child(3) {
-    background: #ffe348;
-}
+    font-size: 9px;
 
-.random span:nth-child(4) {
-    background: #b45cff;
-    color: white;
+    color: #54205b;
 }
 
 
 /* ================================
-   DETALLES 2000s
+   CANCIONES
+================================ */
+
+.canciones {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.cancion {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px;
+
+    background: white;
+
+    border: 3px solid #170912;
+
+    box-shadow: 4px 4px 0 #170912;
+
+    transition: .2s;
+}
+
+.cancion:hover {
+
+    transform: translateX(5px);
+}
+
+.numero {
+
+    width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #ff4166;
+
+    color: white;
+
+    border: 2px solid #170912;
+
+    font-family: "Permanent Marker", cursive;
+}
+
+.cancion:nth-child(2) .numero {
+    background: #52dfff;
+    color: #170912;
+}
+
+.cancion:nth-child(3) .numero {
+    background: #ffe044;
+    color: #170912;
+}
+
+.cancion:nth-child(4) .numero {
+    background: #b65cff;
+    color: white;
+}
+
+.cancion-info {
+
+    flex: 1;
+}
+
+.cancion-nombre {
+
+    font-family: "Permanent Marker", cursive;
+
+    color: #d7193f;
+
+    font-size: 15px;
+}
+
+.cancion-artista {
+
+    font-size: 10px;
+
+    color: #70205c;
+}
+
+.nota {
+
+    font-size: 18px;
+}
+
+
+/* ================================
+   CANCIÓN DEL MOMENTO
+================================ */
+
+.momento {
+
+    padding: 18px;
+
+    background: #170912;
+
+    border: 4px solid #ffea58;
+
+    box-shadow: 7px 7px 0 #53dfff;
+
+    color: white;
+
+    text-align: center;
+
+    transform: rotate(-1deg);
+}
+
+.momento h3 {
+
+    margin: 5px 0 10px;
+
+    color: #ffea58;
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 24px;
+}
+
+.momento .cancion-grande {
+
+    color: #ff6d8d;
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 19px;
+}
+
+.momento p {
+
+    color: #ddd;
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 16px;
+}
+
+
+/* ================================
+   BLINKIE
 ================================ */
 
 .blinkie {
@@ -692,26 +989,6 @@ body {
         opacity: .35;
     }
 
-}
-
-
-.contador {
-
-    margin-top: 15px;
-
-    font-family: monospace;
-
-    background: #180813;
-
-    color: #53dfff;
-
-    padding: 6px;
-
-    border: 2px solid #53dfff;
-
-    text-align: center;
-
-    font-size: 11px;
 }
 
 
@@ -782,23 +1059,15 @@ footer {
 
     }
 
-}
+    .artistas {
 
-/* ================================
+        grid-template-columns: 1fr;
 
-}
-
-@keyframes blinkie {
-
-    from {
-        opacity: .45;
     }
 
-    to {
-        opacity: 1;
-    }
+}
 
-}</style>
+</style>
 
 </head>
 
@@ -806,9 +1075,9 @@ footer {
 <body>
 
 
-<!-- =================================
+<!-- ================================
      ESTRELLAS
-================================= -->
+================================ -->
 
 <div class="estrellas">
 
@@ -838,9 +1107,9 @@ footer {
 <div class="pagina">
 
 
-<!-- =================================
+<!-- ================================
      CABECERA
-================================= -->
+================================ -->
 
 <header class="cabecera">
 
@@ -853,19 +1122,19 @@ footer {
     </div>
 
     <div class="tag tag2">
-        ★ YEAH ★
+        ★ MUSIC ★
     </div>
 
     <div class="tag tag3">
-        ♥
+        ♫
     </div>
 
     <div class="pegatina pegatina1">
-        ★ ONLINE ★
+        ★ NOW PLAYING ★
     </div>
 
     <div class="pegatina pegatina2">
-        ♥ HI!!!
+        ♥ MUSIC!!!
     </div>
 
     <div class="pegatina pegatina3">
@@ -883,17 +1152,17 @@ footer {
 </header>
 
 
-<!-- =================================
+<!-- ================================
      MENÚ
-================================= -->
+================================ -->
 
 <nav class="menu">
 
-    <a href="#">INICIO</a>
+    <a href="index.html">INICIO</a>
 
     <a href="diario.html">DIARIO</a>
 
-    <a href="#">MÚSICA</a>
+    <a href="musica.html">MÚSICA</a>
 
     <a href="#">ARTE</a>
 
@@ -902,48 +1171,50 @@ footer {
 </nav>
 
 
-<!-- =================================
+<!-- ================================
      CONTENIDO
-================================= -->
+================================ -->
 
 <div class="contenido">
 
 
-<!-- PERFIL -->
+<!-- ================================
+     PERFIL
+================================ -->
 
 <aside class="perfil">
 
     <div class="blinkie">
-        ★ BIENVENID@ ★
+        ★ NOW PLAYING ★
     </div>
 
     <h2>
-        HOLAA, SOY SIRAA
+        MI MUNDO MUSICAL
     </h2>
 
     <div class="foto">
-        ★
+        ♫
     </div>
 
     <p>
-        Bienvenid@ a mi pequeño
-        rincón de internet.
+        La música es una de las cosas
+        que más me acompañan.
     </p>
 
     <p>
-        Me gustan el arte, la música,
-        los atardeceres, las estrellas
-        y las cosas un poco caóticas.
+        Aquí voy a guardar canciones,
+        artistas, álbumes y todas esas
+        canciones que terminan formando
+        parte de mis recuerdos.
     </p>
 
     <p>
-        Este sitio es mío y aquí
-        puedo poner lo que quiera. La idea es crear un 
-        recuerdo de mi adolescencia aquí.
+        Probablemente esta página
+        cambie muchísimo con el tiempo.
     </p>
 
     <div class="estado">
-        ● ACTUALMENTE ONLINE
+        ● ESCUCHANDO MÚSICA
     </div>
 
     <div class="contador">
@@ -953,121 +1224,376 @@ footer {
 </aside>
 
 
-<!-- PRINCIPAL -->
+<!-- ================================
+     PRINCIPAL
+================================ -->
 
 <main>
 
 
-<!-- BIENVENIDA -->
+<!-- INTRO -->
 
 <section class="caja">
 
     <h2>
-        ★ BIENVENID@ A MI BLOG
+        ♫ BIENVENID@ A MI MÚSICA
     </h2>
 
     <p>
-        Has encontrado mi pequeño
-        rincón perdido de internet.
+        Esta es probablemente una de las
+        partes más importantes de mi blog.
     </p>
 
     <p>
-        Aquí voy a guardar pensamientos,
-        dibujos, recuerdos, música,
-        cosas que me gustan y cualquier
-        cosa random que me apetezca.
+        Hay canciones que simplemente
+        escuchas... y otras que terminan
+        asociándose a personas, lugares,
+        épocas y recuerdos.
     </p>
 
     <p>
-        No sé exactamente en qué se
-        convertirá esta página...
-        pero esa es parte de la gracia.
+        Así que aquí voy a guardar un
+        poquito de todo eso. ★
     </p>
 
 </section>
 
 
-<!-- DIARIO -->
+<!-- ARTISTAS -->
 
 <section class="caja">
 
     <h2>
-        📓 ÚLTIMA LIADA
+        ★ MIS ARTISTAS
     </h2>
 
-    <div class="entrada">
+    <div class="artistas">
 
-        <div class="fecha">
-            30 / 08 / 2026
+
+        <div class="artista">
+
+            <div class="artista-img">
+                <img src="linkin-park.jpg" alt="Linkin Park">
+            </div>
+
+            <h3>
+                LINKIN PARK
+            </h3>
+
+            <p>
+                Una de mis bandas favoritas.
+                ♡
+            </p>
+
+        </div>
+
+
+        <div class="artista">
+
+            <div class="artista-img">
+                FOTO
+            </div>
+
+            <h3>
+                ARTISTA 02
+            </h3>
+
+            <p>
+                Añadir descripción aquí.
+            </p>
+
+        </div>
+
+
+        <div class="artista">
+
+            <div class="artista-img">
+                FOTO
+            </div>
+
+            <h3>
+                ARTISTA 03
+            </h3>
+
+            <p>
+                Añadir descripción aquí.
+            </p>
+
+        </div>
+
+
+        <div class="artista">
+
+            <div class="artista-img">
+                FOTO
+            </div>
+
+            <h3>
+                ARTISTA 04
+            </h3>
+
+            <p>
+                Añadir descripción aquí.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ÁLBUMES -->
+
+<section class="caja">
+
+    <h2>
+        💿 ÁLBUMES QUE ME ENCANTAN
+    </h2>
+
+    <div class="albumes">
+
+
+        <div class="album">
+
+            <div class="portada">
+                PORTADA
+            </div>
+
+            <h4>
+                ÁLBUM 01
+            </h4>
+
+            <small>
+                ARTISTA
+            </small>
+
+        </div>
+
+
+        <div class="album">
+
+            <div class="portada">
+                PORTADA
+            </div>
+
+            <h4>
+                ÁLBUM 02
+            </h4>
+
+            <small>
+                ARTISTA
+            </small>
+
+        </div>
+
+
+        <div class="album">
+
+            <div class="portada">
+                PORTADA
+            </div>
+
+            <h4>
+                ÁLBUM 03
+            </h4>
+
+            <small>
+                ARTISTA
+            </small>
+
+        </div>
+
+
+        <div class="album">
+
+            <div class="portada">
+                PORTADA
+            </div>
+
+            <h4>
+                ÁLBUM 04
+            </h4>
+
+            <small>
+                ARTISTA
+            </small>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CANCIONES -->
+
+<section class="caja">
+
+    <h2>
+        🎧 CANCIONES EN REPEAT
+    </h2>
+
+    <div class="canciones">
+
+
+        <div class="cancion">
+
+            <div class="numero">
+                01
+            </div>
+
+            <div class="cancion-info">
+
+                <div class="cancion-nombre">
+                    In the End
+                </div>
+
+                <div class="cancion-artista">
+                    Linkin Park
+                </div>
+
+            </div>
+
+            <div class="nota">
+                ★
+            </div>
+
+        </div>
+
+
+        <div class="cancion">
+
+            <div class="numero">
+                02
+            </div>
+
+            <div class="cancion-info">
+
+                <div class="cancion-nombre">
+                    Fighting Myself
+                </div>
+
+                <div class="cancion-artista">
+                    Linkin Park
+                </div>
+
+            </div>
+
+            <div class="nota">
+                ★
+            </div>
+
+        </div>
+
+
+        <div class="cancion">
+
+            <div class="numero">
+                03
+            </div>
+
+            <div class="cancion-info">
+
+                <div class="cancion-nombre">
+                    MI CANCIÓN
+                </div>
+
+                <div class="cancion-artista">
+                    ARTISTA
+                </div>
+
+            </div>
+
+            <div class="nota">
+                ♫
+            </div>
+
+        </div>
+
+
+        <div class="cancion">
+
+            <div class="numero">
+                04
+            </div>
+
+            <div class="cancion-info">
+
+                <div class="cancion-nombre">
+                    OTRA CANCIÓN
+                </div>
+
+                <div class="cancion-artista">
+                    ARTISTA
+                </div>
+
+            </div>
+
+            <div class="nota">
+                ♫
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CANCIÓN DEL MOMENTO -->
+
+<section class="caja">
+
+    <div class="momento">
+
+        <div>
+            ★ ♫ ★
         </div>
 
         <h3>
-            ★ POR FIN TENGO MI PROPIO BLOG ★
+            NOW PLAYING
         </h3>
 
-        <p>
-            Después de muchísima desesperación
-            con GitHub, finalmente tengo
-            mi propio rincón de internet.
-        </p>
+        <div class="cancion-grande">
+            MI CANCIÓN DEL MOMENTO
+        </div>
 
         <p>
-            Ahoraa... se vienen cositas :).
-            ♡
+            “Aquí puedes escribir por qué
+            estás obsesionad@ con esta canción.”
         </p>
+
+        <div>
+            ★ ♫ ★
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- COSAS RANDOM -->
+<!-- FRASE -->
 
 <section class="caja">
 
     <h2>
-        ✦ COSAS RANDOM
-    </h2>
-
-    <div class="random">
-
-        <span>
-            ESTRELLAS ★
-        </span>
-
-        <span>
-            RECUERDOS
-        </span>
-
-        <span>
-            ATARDECERES ☀
-        </span>
-
-        <span>
-            MÚSICA ♫
-        </span>
-
-    </div>
-
-</section>
-
-
-<!-- RECORDATORIO -->
-
-<section class="caja">
-
-    <h2>
-        ♥ UN PEQUEÑO RECORDATORIO
+        ♥ MÚSICA = RECUERDOS
     </h2>
 
     <p>
-        No serás un adolescente toda tu vida.
+        Quiero poder volver a esta página
+        dentro de unos años y encontrar
+        todas las canciones que escuchaba
+        durante esta época.
     </p>
 
     <p>
-        A veces simplemente puedes
-        mirar el cielo, escuchar música
-        y disfrutar del momento.
+        Como una pequeña cápsula del tiempo,
+        pero hecha de música. ★
     </p>
 
 </section>
@@ -1078,21 +1604,21 @@ footer {
 </div>
 
 
-<!-- =================================
-     FRASE FINAL
-================================= -->
+<!-- ================================
+     FINAL
+================================ -->
 
 <div class="frase-final">
 
-    ★ ✦ ★ ✦ ★
+    ★ ✦ ♫ ✦ ★
 
     <br><br>
 
-    made somewhere between a sunset and midnight
+    every song becomes a memory eventually
 
     <br><br>
 
-    ★ ✦ ★ ✦ ★
+    ★ ✦ ♫ ✦ ★
 
 </div>
 
@@ -1104,14 +1630,14 @@ footer {
 
     <br><br>
 
-    ♥ gracias por leerme ♥
+    ♥ gracias por escuchar conmigo ♥
 
 </footer>
 
 
+</div>
 
-</script>
-   
 </body>
 
 </html>
+```
