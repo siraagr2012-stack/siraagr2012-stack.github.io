@@ -878,7 +878,71 @@ footer {
     color: #53dfff;
 
     transform: rotate(9deg);
-}}</style>
+}}.guestbook-blinkies {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin: 15px 0;
+
+}
+
+.guestbook-blinkies span {
+
+    display: inline-block;
+
+    padding: 4px 8px;
+
+    background: #170912;
+
+    color: #ffe348;
+
+    border: 2px solid #ff4166;
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    box-shadow: 3px 3px 0 #170912;
+
+    animation: blinkie 1.4s infinite alternate;
+
+}
+
+.guestbook-blinkies span:nth-child(2) {
+
+    color: #53dfff;
+
+    border-color: #53dfff;
+
+}
+
+.guestbook-blinkies span:nth-child(3) {
+
+    color: #ff79bd;
+
+    border-color: #ff79bd;
+
+}
+
+@keyframes blinkie {
+
+    from {
+        opacity: .45;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}</style>
 
 </head>
 
@@ -1201,7 +1265,15 @@ footer {
     ☠
 </div>
 </div>
+<div class="guestbook-blinkies">
 
+    <span>★ BE NICE ★</span>
+
+    <span>♥ LEAVE A MESSAGE ♥</span>
+
+    <span>✦ YOUNG FOREVER ✦</span>
+
+</div>
 <div class="guestbook-titulo">
     ♥ ★ LIBRO DE VISITAS ★ ♥
 </div>
