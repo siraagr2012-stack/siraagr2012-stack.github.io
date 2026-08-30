@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>★ EL MUNDO DE SIRA ★</title>
+
+
+<style>
+
+/* =========================================
+   BASE
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    color: #f5eeee;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #100409 0%,
+            #3b080e 25%,
+            #8f1d18 48%,
+            #d65328 64%,
+            #762044 78%,
+            #0b0710 100%
+        );
+
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   TEXTURA
+========================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.12;
+
+    background-image:
+
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 4px,
+            white 5px,
+            transparent 6px
+        );
+
+    z-index: -3;
+}
+
+
+/* =========================================
+   ESTRELLAS
+========================================= */
+
+.estrellas {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+.estrella {
+
+    position: absolute;
+
+    color: white;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 12px #ffaaaa;
+
+    animation: brillar 2.5s infinite alternate;
+}
+
+
+@keyframes brillar {
+
+    from {
+
+        opacity: 0.25;
+
+        transform: scale(0.8);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1.2);
+
+    }
+}
+
+
+/* =========================================
+   LUNA
+========================================= */
+
+.luna {
+
+    position: fixed;
+
+    top: 25px;
+
+    right: 40px;
+
+    font-size: 70px;
+
+    color: #fff1d4;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 30px #ff9670;
+
+    z-index: -1;
+}
+
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.sitio {
+
+    width: 92%;
+
+    max-width: 1050px;
+
+    margin: 35px auto;
+}
+
+
+/* =========================================
+   CABECERA
+========================================= */
+
+header {
+
+    position: relative;
+
+    padding: 55px 25px;
+
+    text-align: center;
+
+    border: 3px solid #ff3030;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(15, 5, 8, 0.97),
+            rgba(90, 8, 15, 0.93)
+        );
+
+    box-shadow:
+
+        8px 8px 0 #160509,
+
+        0 0 25px rgba(255, 30, 30, 0.6);
+
+    transform: rotate(-0.5deg);
+}
+
+
+header::after {
+
+    content: "★";
+
+    position: absolute;
+
+    right: 25px;
+
+    bottom: -22px;
+
+    font-size: 70px;
+
+    color: #ff3434;
+
+    transform: rotate(15deg);
+
+    text-shadow:
+        4px 4px 0 #160509;
+}
+
+
+.logo-pequeno {
+
+    color: #ff8d5c;
+
+    letter-spacing: 12px;
+
+    font-size: 18px;
+
+    margin-bottom: 12px;
+}
+
+
+h1 {
+
+    margin: 0;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(40px, 8vw, 82px);
+
+    letter-spacing: 5px;
+
+    color: white;
+
+    transform: rotate(-2deg);
+
+    text-shadow:
+
+        4px 4px 0 #8b0808,
+
+        8px 8px 0 #190508,
+
+        0 0 20px #ff3b3b;
+}
+
+
+.subtitulo {
+
+    margin-top: 20px;
+
+    color: #ffc7a8;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   NAVEGACIÓN
+========================================= */
+
+nav {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin: 25px 0;
+}
+
+
+nav a {
+
+    padding: 10px 18px;
+
+    color: white;
+
+    text-decoration: none;
+
+    background: #b5101b;
+
+    border: 2px solid #ff6868;
+
+    box-shadow:
+        4px 4px 0 #170508;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    transform: rotate(-1deg);
+
+    transition: 0.2s;
+}
+
+
+nav a:nth-child(even) {
+
+    transform: rotate(2deg);
+
+    background: #731233;
+}
+
+
+nav a:hover {
+
+    transform:
+        rotate(0deg)
+        translateY(-5px)
+        scale(1.05);
+
+    background: #ed2020;
+
+    box-shadow:
+        5px 5px 0 #170508,
+        0 0 18px #ff3333;
+}
+
+
+/* =========================================
+   ESTRUCTURA
+========================================= */
+
+.estructura {
+
+    display: grid;
+
+    grid-template-columns: 235px 1fr;
+
+    gap: 20px;
+}
+
+
+/* =========================================
+   BARRA LATERAL
+========================================= */
+
+.lateral {
+
+    padding: 20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #14080d,
+            #3b0b13
+        );
+
+    border: 2px solid #a91b29;
+
+    box-shadow:
+        7px 7px 0 #100307;
+}
+
+
+.etiqueta {
+
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    background: #ff302f;
+
+    color: #160408;
+
+    font-weight: bold;
+
+    transform: rotate(-4deg);
+
+    margin-bottom: 15px;
+}
+
+
+.perfil {
+
+    width: 135px;
+
+    height: 135px;
+
+    margin: 10px auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 3px solid #ff4545;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #e84b25,
+            #68121a 55%,
+            #17070b
+        );
+
+    font-size: 55px;
+
+    box-shadow:
+        0 0 20px #ff3939;
+}
+
+
+.lateral h2 {
+
+    color: #ff7061;
+
+    font-size: 23px;
+
+    transform: rotate(-2deg);
+}
+
+
+.lateral p {
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    color: #e0bcbc;
+}
+
+
+.estado {
+
+    margin-top: 20px;
+
+    padding: 8px;
+
+    border: 1px dashed #d34b4b;
+
+    color: #ffb1a3;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   CAJAS
+========================================= */
+
+.caja {
+
+    position: relative;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    background:
+        rgba(12, 5, 9, 0.95);
+
+    border: 2px solid #9d2430;
+
+    box-shadow:
+        6px 6px 0 #120408;
+}
+
+
+.caja:nth-child(even) {
+
+    transform: rotate(0.4deg);
+}
+
+
+.caja h2 {
+
+    margin-top: 0;
+
+    color: #ff5148;
+
+    font-size: 25px;
+
+    text-shadow:
+        2px 2px 0 #270609;
+}
+
+
+.caja p {
+
+    color: #e9cccc;
+
+    line-height: 1.8;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   ENTRADA DEL DIARIO
+========================================= */
+
+.entrada {
+
+    padding: 17px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #260a10,
+            #42101a
+        );
+
+    border-left: 6px solid #ff3c3c;
+
+    box-shadow:
+        4px 4px 0 #120407;
+}
+
+
+.fecha {
+
+    color: #ff9b72;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+.entrada h3 {
+
+    color: white;
+
+    font-size: 21px;
+
+    transform: rotate(-1deg);
+}
+
+
+/* =========================================
+   PEGATINAS
+========================================= */
+
+.pegatinas {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+.pegatina {
+
+    padding: 10px 15px;
+
+    background: #d5222c;
+
+    color: white;
+
+    font-weight: bold;
+
+    box-shadow:
+        4px 4px 0 #150407;
+
+    transform: rotate(-3deg);
+}
+
+
+.pegatina:nth-child(2) {
+
+    background: #ed6a32;
+
+    transform: rotate(3deg);
+}
+
+
+.pegatina:nth-child(3) {
+
+    background: #75255d;
+
+    transform: rotate(-2deg);
+}
+
+
+.pegatina:nth-child(4) {
+
+    background: #244d78;
+
+    transform: rotate(2deg);
+}
+
+
+/* =========================================
+   PIE DE PÁGINA
+========================================= */
+
+footer {
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #c89595;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media (max-width: 700px) {
+
+    .estructura {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .luna {
+
+        font-size: 45px;
+
+        top: 15px;
+
+        right: 15px;
+    }
+
+    header {
+
+        padding: 45px 15px;
+
+    }
+
+    nav a {
+
+        padding: 8px 12px;
+
+    }
+
+    .sitio {
+
+        width: 95%;
+
+    }
+
+}
+
+
+/* =========================================
+   SELECCIÓN
+========================================= */
+
+::selection {
+
+    background: #ff3030;
+
+    color: white;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ESTRELLAS -->
+
+<div class="estrellas">
+
+    <span class="estrella" style="top:5%;left:7%;font-size:14px;">✦</span>
+
+    <span class="estrella" style="top:11%;left:25%;font-size:20px;">★</span>
+
+    <span class="estrella" style="top:18%;left:48%;font-size:12px;">✧</span>
+
+    <span class="estrella" style="top:25%;left:83%;font-size:18px;">✦</span>
+
+    <span class="estrella" style="top:34%;left:12%;font-size:16px;">★</span>
+
+    <span class="estrella" style="top:42%;left:67%;font-size:12px;">✧</span>
+
+    <span class="estrella" style="top:51%;left:91%;font-size:20px;">★</span>
+
+    <span class="estrella" style="top:61%;left:30%;font-size:14px;">✦</span>
+
+    <span class="estrella" style="top:73%;left:75%;font-size:16px;">✧</span>
+
+    <span class="estrella" style="top:84%;left:10%;font-size:20px;">★</span>
+
+    <span class="estrella" style="top:93%;left:55%;font-size:13px;">✦</span>
+
+</div>
+
+
+<div class="luna">
+    ☾
+</div>
+
+
+<div class="sitio">
+
+
+<!-- =====================================
+     CABECERA
+===================================== -->
+
+<header>
+
+    <div class="logo-pequeno">
+        ★ ✦ ★ ✦ ★
+    </div>
+
+    <h1>
+        EL BLOG DE SIRA
+    </h1>
+
+    <div class="subtitulo">
+        bienvenid@ a mi caótico rincón de internet ♡
+    </div>
+
+    <div class="logo-pequeno">
+        ✦ · · · ★ · · · ✦
+    </div>
+
+</header>
+
+
+<!-- =====================================
+     MENÚ
+===================================== -->
+
+<nav>
+
+    <a href="#">INICIO</a>
+
+    <a href="#">DIARIO</a>
+
+    <a href="#">MÚSICA</a>
+
+    <a href="#">ARTE</a>
+
+    <a href="#">SOBRE MÍ</a>
+
+</nav>
+
+
+<!-- =====================================
+     CONTENIDO
+===================================== -->
+
+<div class="estructura">
+
+
+<!-- BARRA LATERAL -->
+
+<aside class="lateral">
+
+    <div class="etiqueta">
+        ★ ONLINE ★
+    </div>
+
+
+    <div class="perfil">
+        ★
+    </div>
+
+
+    <h2>
+        Hola, soy Sira
+    </h2>
+
+
+    <p>
+        Bienvenid@ a mi pequeño
+        rincón de internet.
+    </p>
+
+
+    <p>
+        Música, arte, estrellas,
+        atardeceres y pensamientos
+        random.
+    </p>
+
+
+    <p>
+        A veces caótica.
+        Siempre yo.
+    </p>
+
+
+    <div class="estado">
+        ● actualmente online
+    </div>
+
+</aside>
+
+
+<!-- CONTENIDO PRINCIPAL -->
+
+<main>
+
+
+<!-- BIENVENIDA -->
+
+<section class="caja">
+
+    <h2>
+        ★ BIENVENID@ A MI MUNDO
+    </h2>
+
+
+    <p>
+        Has encontrado mi pequeño
+        rincón de internet.
+    </p>
+
+
+    <p>
+        Esta página es mi propio espacio
+        para escribir pensamientos,
+        compartir dibujos, hablar de cosas
+        que me gustan y guardar pequeños
+        recuerdos.
+    </p>
+
+
+    <p>
+        Quédate un rato y explora.
+    </p>
+
+</section>
+
+
+<!-- DIARIO -->
+
+<section class="caja">
+
+    <h2>
+        📓 ÚLTIMO CAOS
+    </h2>
+
+
+    <div class="entrada">
+
+        <div class="fecha">
+            30 / 08 / 2026
+        </div>
+
+
+        <h3>
+            POR FIN TENGO MI PROPIO BLOG ★
+        </h3>
+
+
+        <p>
+            Después de darle mil vueltas,
+            por fin tengo mi propio rincón
+            en internet.
+        </p>
+
+
+        <p>
+            Ahora toca llenarlo de cosas.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- COSAS RANDOM -->
+
+<section class="caja">
+
+    <h2>
+        ✦ COSAS RANDOM
+    </h2>
+
+
+    <div class="pegatinas">
+
+        <div class="pegatina">
+            ESTRELLAS ★
+        </div>
+
+
+        <div class="pegatina">
+            ARTE ✦
+        </div>
+
+
+        <div class="pegatina">
+            MÚSICA ♫
+        </div>
+
+
+        <div class="pegatina">
+            ATARDECERES ☀
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FRASE -->
+
+<section class="caja">
+
+    <h2>
+        ✧ UN PEQUEÑO RECORDATORIO
+    </h2>
+
+
+    <p>
+        No todo tiene que tener sentido.
+    </p>
+
+
+    <p>
+        A veces simplemente hay que
+        mirar las estrellas y disfrutar
+        del momento.
+    </p>
+
+</section>
+
+
+</main>
+
+</div>
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    ★ ✦ ★ ✦ ★
+
+    <br><br>
+
+    made somewhere between a sunset and midnight
+
+    <br><br>
+
+    última actualización: 30 / 08 / 2026
+
+</footer>
+
+
+</div>
+
+
+</body>
+
+</html>
