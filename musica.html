@@ -4,136 +4,652 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Música 🎧</title>
+
+    <title>music ★</title>
 
     <style>
-        body {
-            background-color: #111111;
-            color: #eeeeee;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        * {
+            box-sizing: border-box;
         }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at 20% 20%, #272733 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, #211c27 0%, transparent 25%),
+                #0b0b0f;
+            color: #dcd9df;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        /* BARRA SUPERIOR */
 
         header {
             text-align: center;
-            padding: 40px 20px;
-            background-color: #181818;
+            padding: 45px 20px 25px;
+            border-bottom: 1px solid #35323b;
+            background: rgba(8, 8, 11, 0.9);
+        }
+
+        .mini {
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: #77717d;
+            margin-bottom: 12px;
         }
 
         h1 {
-            font-size: 42px;
             margin: 0;
+            font-family: Georgia, serif;
+            font-size: 52px;
+            font-style: italic;
+            font-weight: normal;
+            color: #eeeeee;
+            text-shadow: 3px 3px 0 #292630;
         }
 
         header p {
-            color: #aaaaaa;
-            font-size: 16px;
+            color: #89838e;
+            font-size: 13px;
+            letter-spacing: 1px;
         }
+
+        /* MENÚ */
 
         nav {
             text-align: center;
             padding: 15px;
-            background-color: #0b0b0b;
+            border-bottom: 1px solid #29272e;
+            background: #0e0e12;
         }
 
         nav a {
-            color: #eeeeee;
+            color: #aaa4af;
             text-decoration: none;
-            margin: 0 15px;
+            font-size: 13px;
+            margin: 0 18px;
+            letter-spacing: 1px;
+            transition: 0.2s;
         }
 
         nav a:hover {
-            color: #999999;
+            color: #ffffff;
+            text-shadow: 0 0 8px #aaa;
         }
+
+        /* CONTENIDO */
 
         main {
-            max-width: 800px;
-            margin: auto;
-            padding: 40px 20px;
+            width: 90%;
+            max-width: 950px;
+            margin: 45px auto;
         }
 
-        .seccion {
-            background-color: #1c1c1c;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 12px;
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        h2 {
-            margin-top: 0;
+        .intro h2 {
+            font-family: Georgia, serif;
+            font-weight: normal;
+            font-size: 28px;
+            font-style: italic;
+            margin-bottom: 10px;
         }
 
-        .cancion {
-            padding: 12px 0;
-            border-bottom: 1px solid #333333;
+        .intro p {
+            color: #817b87;
+            font-size: 13px;
         }
 
-        .cancion:last-child {
+        /* CAJAS */
+
+        .box {
+            background: rgba(22, 21, 26, 0.92);
+            border: 1px solid #37333d;
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 8px 8px 0 #09090c;
+        }
+
+        .box-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #37333d;
+            padding-bottom: 12px;
+            margin-bottom: 22px;
+        }
+
+        .box-title h2 {
+            margin: 0;
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-weight: normal;
+            font-size: 24px;
+        }
+
+        .symbol {
+            color: #817886;
+            font-size: 18px;
+        }
+
+        /* ARTISTAS */
+
+        .artists {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .artist {
+            border: 1px solid #34313a;
+            background: #111116;
+            padding: 15px;
+            text-align: center;
+            transition: 0.25s;
+        }
+
+        .artist:hover {
+            transform: translateY(-4px);
+            border-color: #66616d;
+        }
+
+        .artist img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            filter: grayscale(25%);
+            display: block;
+            margin-bottom: 13px;
+        }
+
+        .artist-name {
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-size: 17px;
+            color: #ddd9df;
+        }
+
+        .artist-desc {
+            font-size: 11px;
+            color: #77717c;
+            margin-top: 6px;
+        }
+
+        /* ÁLBUMES */
+
+        .albums {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .album {
+            width: 150px;
+        }
+
+        .album img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 1px solid #403c46;
+            box-shadow: 5px 5px 0 #09090c;
+            transition: 0.2s;
+        }
+
+        .album img:hover {
+            transform: rotate(-2deg) scale(1.03);
+        }
+
+        .album-name {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #d0ccd3;
+        }
+
+        .album-artist {
+            font-size: 11px;
+            color: #77717d;
+            margin-top: 3px;
+        }
+
+        /* CANCIONES */
+
+        .songs {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .song {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8px;
+            border-bottom: 1px dashed #36333b;
+        }
+
+        .song:last-child {
             border-bottom: none;
         }
 
+        .song-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .number {
+            color: #66616d;
+            font-size: 12px;
+            width: 20px;
+        }
+
+        .song-name {
+            color: #d9d5dc;
+            font-size: 14px;
+        }
+
+        .song-artist {
+            color: #716b76;
+            font-size: 11px;
+            margin-top: 3px;
+        }
+
+        .star {
+            color: #77717d;
+        }
+
+        /* CANCIÓN DEL MOMENTO */
+
+        .favorite {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .favorite .big-star {
+            font-size: 28px;
+            color: #88818e;
+        }
+
+        .favorite h3 {
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-size: 25px;
+            font-weight: normal;
+            margin: 10px 0 5px;
+        }
+
+        .favorite p {
+            color: #77717d;
+            font-size: 12px;
+        }
+
+        /* FRASE */
+
+        .quote {
+            text-align: center;
+            padding: 25px 15px;
+            color: #817b87;
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-size: 16px;
+        }
+
+        /* PIE */
+
         footer {
             text-align: center;
-            padding: 30px;
-            color: #777777;
+            padding: 45px 20px;
+            color: #5e5964;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        /* MÓVIL */
+
+        @media (max-width: 700px) {
+
+            h1 {
+                font-size: 40px;
+            }
+
+            .artists {
+                grid-template-columns: 1fr;
+            }
+
+            .albums {
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>🎧 Música</h1>
-        <p>Las canciones que forman parte de mi vida</p>
-    </header>
+<header>
 
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="musica.html">Música</a>
-    </nav>
+    <div class="mini">✦ my little corner of the internet ✦</div>
 
-    <main>
+    <h1>music</h1>
 
-        <div class="seccion">
-            <h2>🖤 Mis artistas favoritos</h2>
+    <p>songs that mean something to me</p>
 
-            <p>🎸 Linkin Park</p>
-            <p>🎤 Aquí puedes añadir más artistas...</p>
-            <p>🎶 Y más artistas que descubra con el tiempo.</p>
+</header>
+
+
+<nav>
+
+    <a href="index.html">home</a>
+    <a href="musica.html">music</a>
+
+</nav>
+
+
+<main>
+
+    <div class="intro">
+
+        <h2>♪ music is everything</h2>
+
+        <p>
+            algunas canciones se quedan contigo mucho después de que terminen.
+        </p>
+
+    </div>
+
+
+    <!-- ARTISTAS -->
+
+    <section class="box">
+
+        <div class="box-title">
+            <span class="symbol">✦</span>
+            <h2>my favorite bands</h2>
         </div>
 
-        <div class="seccion">
-            <h2>⭐ Canciones que me encantan</h2>
+        <div class="artists">
 
-            <div class="cancion">
-                🎵 Canción 1 — Artista
+            <div class="artist">
+
+                <!-- CAMBIA esta imagen por una tuya -->
+                <img src="foto-linkin-park.jpg" alt="Linkin Park">
+
+                <div class="artist-name">
+                    Linkin Park
+                </div>
+
+                <div class="artist-desc">
+                    always on repeat ♡
+                </div>
+
             </div>
 
-            <div class="cancion">
-                🎵 Canción 2 — Artista
+
+            <div class="artist">
+
+                <img src="foto-artista-2.jpg" alt="Artista">
+
+                <div class="artist-name">
+                    another band
+                </div>
+
+                <div class="artist-desc">
+                    ★ favorite
+                </div>
+
             </div>
 
-            <div class="cancion">
-                🎵 Canción 3 — Artista
+
+            <div class="artist">
+
+                <img src="foto-artista-3.jpg" alt="Artista">
+
+                <div class="artist-name">
+                    another artist
+                </div>
+
+                <div class="artist-desc">
+                    current obsession
+                </div>
+
             </div>
+
         </div>
 
-        <div class="seccion">
-            <h2>🌙 Canción del momento</h2>
+    </section>
+
+
+    <!-- ÁLBUMES -->
+
+    <section class="box">
+
+        <div class="box-title">
+            <span class="symbol">✦</span>
+            <h2>albums i love</h2>
+        </div>
+
+        <div class="albums">
+
+            <div class="album">
+
+                <img src="album-1.jpg" alt="Álbum">
+
+                <div class="album-name">
+                    Album name
+                </div>
+
+                <div class="album-artist">
+                    Artist
+                </div>
+
+            </div>
+
+
+            <div class="album">
+
+                <img src="album-2.jpg" alt="Álbum">
+
+                <div class="album-name">
+                    Album name
+                </div>
+
+                <div class="album-artist">
+                    Artist
+                </div>
+
+            </div>
+
+
+            <div class="album">
+
+                <img src="album-3.jpg" alt="Álbum">
+
+                <div class="album-name">
+                    Album name
+                </div>
+
+                <div class="album-artist">
+                    Artist
+                </div>
+
+            </div>
+
+
+            <div class="album">
+
+                <img src="album-4.jpg" alt="Álbum">
+
+                <div class="album-name">
+                    Album name
+                </div>
+
+                <div class="album-artist">
+                    Artist
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CANCIONES -->
+
+    <section class="box">
+
+        <div class="box-title">
+            <span class="symbol">✦</span>
+            <h2>songs on repeat</h2>
+        </div>
+
+        <div class="songs">
+
+            <div class="song">
+
+                <div class="song-left">
+
+                    <span class="number">01</span>
+
+                    <div>
+                        <div class="song-name">
+                            In the End
+                        </div>
+
+                        <div class="song-artist">
+                            Linkin Park
+                        </div>
+                    </div>
+
+                </div>
+
+                <span class="star">★</span>
+
+            </div>
+
+
+            <div class="song">
+
+                <div class="song-left">
+
+                    <span class="number">02</span>
+
+                    <div>
+                        <div class="song-name">
+                            Fighting Myself
+                        </div>
+
+                        <div class="song-artist">
+                            Linkin Park
+                        </div>
+                    </div>
+
+                </div>
+
+                <span class="star">★</span>
+
+            </div>
+
+
+            <div class="song">
+
+                <div class="song-left">
+
+                    <span class="number">03</span>
+
+                    <div>
+                        <div class="song-name">
+                            My favorite song
+                        </div>
+
+                        <div class="song-artist">
+                            Artist
+                        </div>
+                    </div>
+
+                </div>
+
+                <span class="star">☆</span>
+
+            </div>
+
+
+            <div class="song">
+
+                <div class="song-left">
+
+                    <span class="number">04</span>
+
+                    <div>
+                        <div class="song-name">
+                            Another song
+                        </div>
+
+                        <div class="song-artist">
+                            Artist
+                        </div>
+                    </div>
+
+                </div>
+
+                <span class="star">☆</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CANCIÓN DEL MOMENTO -->
+
+    <section class="box">
+
+        <div class="favorite">
+
+            <div class="big-star">
+                ★
+            </div>
+
+            <h3>song of the moment</h3>
 
             <p>
-                Aquí puedes escribir qué canción estás escuchando
-                muchísimo últimamente y por qué te gusta.
+                aquí puedes escribir qué canción estás escuchando
+                últimamente y por qué significa algo para ti.
             </p>
+
         </div>
 
-    </main>
+    </section>
 
-    <footer>
-        ✦ mi pequeño rincón musical ✦
-    </footer>
+
+    <!-- FRASE -->
+
+    <section class="box">
+
+        <div class="quote">
+            “some songs feel like memories you haven't lived yet.”
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    ✦ made with music & too many feelings ✦
+
+</footer>
 
 </body>
 </html>
 ```
+
