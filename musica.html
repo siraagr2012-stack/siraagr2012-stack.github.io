@@ -1,655 +1,1117 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>music ★</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<title>★ SIRA ★</title>
 
-        body {
-            margin: 0;
-            background:
-                radial-gradient(circle at 20% 20%, #272733 0%, transparent 25%),
-                radial-gradient(circle at 80% 70%, #211c27 0%, transparent 25%),
-                #0b0b0f;
-            color: #dcd9df;
-            font-family: "Trebuchet MS", Arial, sans-serif;
-            min-height: 100vh;
-        }
+<style>
 
-        /* BARRA SUPERIOR */
+/* ================================
+   FUENTES
+================================ */
 
-        header {
-            text-align: center;
-            padding: 45px 20px 25px;
-            border-bottom: 1px solid #35323b;
-            background: rgba(8, 8, 11, 0.9);
-        }
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Patrick+Hand&display=swap');
 
-        .mini {
-            font-size: 12px;
-            letter-spacing: 4px;
-            color: #77717d;
-            margin-bottom: 12px;
-        }
 
-        h1 {
-            margin: 0;
-            font-family: Georgia, serif;
-            font-size: 52px;
-            font-style: italic;
-            font-weight: normal;
-            color: #eeeeee;
-            text-shadow: 3px 3px 0 #292630;
-        }
+/* ================================
+   GENERAL
+================================ */
 
-        header p {
-            color: #89838e;
-            font-size: 13px;
-            letter-spacing: 1px;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        /* MENÚ */
+body {
 
-        nav {
-            text-align: center;
-            padding: 15px;
-            border-bottom: 1px solid #29272e;
-            background: #0e0e12;
-        }
+    margin: 0;
 
-        nav a {
-            color: #aaa4af;
-            text-decoration: none;
-            font-size: 13px;
-            margin: 0 18px;
-            letter-spacing: 1px;
-            transition: 0.2s;
-        }
+    min-height: 100vh;
 
-        nav a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 8px #aaa;
-        }
+    font-family: "Trebuchet MS", Arial, sans-serif;
 
-        /* CONTENIDO */
+    color: #250812;
 
-        main {
-            width: 90%;
-            max-width: 950px;
-            margin: 45px auto;
-        }
+    background:
 
-        .intro {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+        linear-gradient(
+            180deg,
+            #24104d 0%,
+            #70205c 20%,
+            #c52d45 40%,
+            #f05a32 55%,
+            #ff9a45 68%,
+            #54205b 83%,
+            #0d0817 100%
+        );
 
-        .intro h2 {
-            font-family: Georgia, serif;
-            font-weight: normal;
-            font-size: 28px;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
+    background-attachment: fixed;
 
-        .intro p {
-            color: #817b87;
-            font-size: 13px;
-        }
+    overflow-x: hidden;
+}
 
-        /* CAJAS */
 
-        .box {
-            background: rgba(22, 21, 26, 0.92);
-            border: 1px solid #37333d;
-            padding: 28px;
-            margin-bottom: 28px;
-            box-shadow: 8px 8px 0 #09090c;
-        }
+/* ================================
+   ESTRELLAS DEL FONDO
+================================ */
 
-        .box-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid #37333d;
-            padding-bottom: 12px;
-            margin-bottom: 22px;
-        }
+.estrellas {
 
-        .box-title h2 {
-            margin: 0;
-            font-family: Georgia, serif;
-            font-style: italic;
-            font-weight: normal;
-            font-size: 24px;
-        }
+    position: fixed;
 
-        .symbol {
-            color: #817886;
-            font-size: 18px;
-        }
+    inset: 0;
 
-        /* ARTISTAS */
+    pointer-events: none;
 
-        .artists {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
+    z-index: 0;
+}
 
-        .artist {
-            border: 1px solid #34313a;
-            background: #111116;
-            padding: 15px;
-            text-align: center;
-            transition: 0.25s;
-        }
+.estrellas span {
 
-        .artist:hover {
-            transform: translateY(-4px);
-            border-color: #66616d;
-        }
+    position: absolute;
 
-        .artist img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            filter: grayscale(25%);
-            display: block;
-            margin-bottom: 13px;
-        }
+    color: white;
 
-        .artist-name {
-            font-family: Georgia, serif;
-            font-style: italic;
-            font-size: 17px;
-            color: #ddd9df;
-        }
+    text-shadow:
+        0 0 5px white,
+        0 0 12px #ffb4d4;
 
-        .artist-desc {
-            font-size: 11px;
-            color: #77717c;
-            margin-top: 6px;
-        }
+    animation: brillo 2s infinite alternate;
+}
 
-        /* ÁLBUMES */
+@keyframes brillo {
 
-        .albums {
-            display: flex;
-            gap: 22px;
-            flex-wrap: wrap;
-        }
+    from {
+        opacity: .25;
+    }
 
-        .album {
-            width: 150px;
-        }
+    to {
+        opacity: 1;
+    }
 
-        .album img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border: 1px solid #403c46;
-            box-shadow: 5px 5px 0 #09090c;
-            transition: 0.2s;
-        }
+}
 
-        .album img:hover {
-            transform: rotate(-2deg) scale(1.03);
-        }
 
-        .album-name {
-            margin-top: 10px;
-            font-size: 13px;
-            color: #d0ccd3;
-        }
+/* ================================
+   CONTENEDOR PRINCIPAL
+================================ */
 
-        .album-artist {
-            font-size: 11px;
-            color: #77717d;
-            margin-top: 3px;
-        }
+.pagina {
 
-        /* CANCIONES */
+    position: relative;
 
-        .songs {
-            display: flex;
-            flex-direction: column;
-        }
+    z-index: 1;
 
-        .song {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 8px;
-            border-bottom: 1px dashed #36333b;
-        }
+    width: 94%;
 
-        .song:last-child {
-            border-bottom: none;
-        }
+    max-width: 1050px;
 
-        .song-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+    margin: 25px auto 50px;
 
-        .number {
-            color: #66616d;
-            font-size: 12px;
-            width: 20px;
-        }
+}
 
-        .song-name {
-            color: #d9d5dc;
-            font-size: 14px;
-        }
 
-        .song-artist {
-            color: #716b76;
-            font-size: 11px;
-            margin-top: 3px;
-        }
+/* ================================
+   CABECERA
+================================ */
 
-        .star {
-            color: #77717d;
-        }
+.cabecera {
 
-        /* CANCIÓN DEL MOMENTO */
+    position: relative;
 
-        .favorite {
-            text-align: center;
-            padding: 15px;
-        }
+    min-height: 350px;
 
-        .favorite .big-star {
-            font-size: 28px;
-            color: #88818e;
-        }
+    overflow: hidden;
 
-        .favorite h3 {
-            font-family: Georgia, serif;
-            font-style: italic;
-            font-size: 25px;
-            font-weight: normal;
-            margin: 10px 0 5px;
-        }
+    border: 5px solid #180813;
 
-        .favorite p {
-            color: #77717d;
-            font-size: 12px;
-        }
+    background:
 
-        /* FRASE */
+        linear-gradient(
+            180deg,
+            #421568,
+            #a51d55 35%,
+            #ef4138 58%,
+            #ff9a42 78%,
+            #ffd06a
+        );
 
-        .quote {
-            text-align: center;
-            padding: 25px 15px;
-            color: #817b87;
-            font-family: Georgia, serif;
-            font-style: italic;
-            font-size: 16px;
-        }
+    box-shadow:
 
-        /* PIE */
+        12px 12px 0 #180813,
 
-        footer {
-            text-align: center;
-            padding: 45px 20px;
-            color: #5e5964;
-            font-size: 11px;
-            letter-spacing: 2px;
-        }
+        0 0 35px rgba(255, 50, 80, .7);
+}
 
-        /* MÓVIL */
 
-        @media (max-width: 700px) {
+/* manchas */
 
-            h1 {
-                font-size: 40px;
-            }
+.cabecera .mancha {
 
-            .artists {
-                grid-template-columns: 1fr;
-            }
+    position: absolute;
 
-            .albums {
-                justify-content: center;
-            }
+    border-radius: 50%;
 
-            nav a {
-                margin: 0 8px;
-            }
-        }
-    </style>
+    opacity: .65;
+
+    filter: blur(1px);
+}
+
+.mancha1 {
+
+    width: 260px;
+    height: 80px;
+
+    background: #ff2455;
+
+    right: -50px;
+    bottom: 20px;
+
+    transform: rotate(-15deg);
+}
+
+.mancha2 {
+
+    width: 220px;
+    height: 90px;
+
+    background: #6720a1;
+
+    left: -80px;
+    top: 60px;
+
+    transform: rotate(20deg);
+}
+
+.mancha3 {
+
+    width: 190px;
+    height: 70px;
+
+    background: #ffcf42;
+
+    right: 200px;
+    top: -20px;
+
+    transform: rotate(-8deg);
+}
+
+
+/* ================================
+   GRAFFITI
+================================ */
+
+.nombre {
+
+    position: absolute;
+
+    top: 65px;
+
+    left: 50%;
+
+    transform: translateX(-50%) rotate(-5deg);
+
+    width: 100%;
+
+    text-align: center;
+
+    font-family: Impact, "Arial Black", sans-serif;
+
+    font-size: clamp(100px, 20vw, 190px);
+
+    letter-spacing: -8px;
+
+    color:#120812;
+
+    text-shadow:
+
+        7px 7px 0 #ed163c,
+
+        14px 14px 0 #27101d,
+
+        20px 20px 0 #ff8b36,
+
+        25px 25px 0 #27101d;
+
+    z-index: 5;
+}
+
+
+.frase {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 60px;
+
+    transform: translateX(-50%) rotate(2deg);
+
+    width: 100%;
+
+    text-align: center;
+
+    color: white;
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 22px;
+
+    text-shadow:
+        3px 3px 0 #401020;
+
+    z-index: 6;
+}
+
+
+/* ================================
+   GRAFFITIS DECORATIVOS
+================================ */
+
+.tag {
+
+    position: absolute;
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 25px;
+
+    z-index: 8;
+}
+
+.tag1 {
+
+    left: 20px;
+
+    top: 20px;
+
+    color: #54e0ff;
+
+    transform: rotate(-12deg);
+}
+
+.tag2 {
+
+    right: 20px;
+
+    top: 95px;
+
+    color: #ffe047;
+
+    transform: rotate(10deg);
+}
+
+.tag3 {
+
+    left: 30px;
+
+    bottom: 30px;
+
+    color: #ff3e72;
+
+    transform: rotate(5deg);
+}
+
+
+/* ================================
+   PEGATINAS
+================================ */
+
+.pegatina {
+
+    position: absolute;
+
+    z-index: 10;
+
+    padding: 8px 13px;
+
+    border: 3px solid #160812;
+
+    box-shadow: 5px 5px 0 #160812;
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 14px;
+}
+
+.pegatina1 {
+
+    right: 25px;
+
+    bottom: 25px;
+
+    background: #54d9ff;
+
+    transform: rotate(-7deg);
+}
+
+.pegatina2 {
+
+    left: 25px;
+
+    top: 155px;
+
+    background: #ffef55;
+
+    transform: rotate(7deg);
+}
+
+.pegatina3 {
+
+    right: 90px;
+
+    top: 20px;
+
+    background: #ff3b65;
+
+    color: white;
+
+    transform: rotate(6deg);
+}
+
+
+/* ================================
+   MENÚ
+================================ */
+
+.menu {
+
+    margin: 25px 0;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 8px;
+}
+
+.menu a {
+
+    display: block;
+
+    padding: 9px 16px;
+
+    background: #170912;
+
+    color: white;
+
+    border: 3px solid #ff4264;
+
+    text-decoration: none;
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 14px;
+
+    box-shadow: 4px 4px 0 #ffb83e;
+
+    transition: .2s;
+}
+
+.menu a:nth-child(2) {
+    border-color: #52dfff;
+}
+
+.menu a:nth-child(3) {
+    border-color: #ffe044;
+}
+
+.menu a:nth-child(4) {
+    border-color: #b65cff;
+}
+
+.menu a:nth-child(5) {
+    border-color: #ff7a36;
+}
+
+.menu a:hover {
+
+    transform: rotate(-3deg) scale(1.08);
+
+    background: #ed183c;
+}
+
+
+/* ================================
+   DOS COLUMNAS
+================================ */
+
+.contenido {
+
+    display: grid;
+
+    grid-template-columns: 260px 1fr;
+
+    gap: 20px;
+
+    align-items: start;
+}
+
+
+/* ================================
+   PERFIL
+================================ */
+
+.perfil {
+
+    background: #ffd96b;
+
+    border: 4px solid #170912;
+
+    box-shadow: 8px 8px 0 #170912;
+
+    padding: 18px;
+
+    transform: rotate(-1deg);
+}
+
+.perfil h2 {
+
+    margin-top: 0;
+
+    font-family: "Permanent Marker", cursive;
+
+    color: #d7193f;
+
+    font-size: 27px;
+}
+
+.foto {
+
+    width: 150px;
+
+    height: 150px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #e62950,
+            #74218c,
+            #ff8a36
+        );
+
+    border: 5px solid #170912;
+
+    color: white;
+
+    font-size: 65px;
+
+    transform: rotate(3deg);
+
+    box-shadow: 5px 5px 0 #170912;
+}
+
+.perfil p {
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.estado {
+
+    margin-top: 15px;
+
+    padding: 7px;
+
+    background: #ff4166;
+
+    color: white;
+
+    border: 2px solid #170912;
+
+    font-size: 11px;
+
+    text-align: center;
+}
+
+
+/* ================================
+   CAJAS PRINCIPALES
+================================ */
+
+.caja {
+
+    position: relative;
+
+    margin-bottom: 20px;
+
+    padding: 22px;
+
+    background: #fff0c2;
+
+    border: 4px solid #170912;
+
+    box-shadow: 8px 8px 0 #170912;
+}
+
+.caja:nth-child(even) {
+
+    background: #ffd4df;
+
+    transform: rotate(.5deg);
+}
+
+.caja h2 {
+
+    margin-top: 0;
+
+    font-family: "Permanent Marker", cursive;
+
+    color: #d7193f;
+
+    font-size: 26px;
+
+    text-shadow: 2px 2px 0 #ff9b43;
+}
+
+.caja p {
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* ================================
+   ENTRADA DEL DIARIO
+================================ */
+
+.entrada {
+
+    padding: 15px;
+
+    background: white;
+
+    border: 3px dashed #d7193f;
+
+    transform: rotate(-.5deg);
+}
+
+.fecha {
+
+    color: #8c236d;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+.entrada h3 {
+
+    color: #e52340;
+
+    font-family: "Permanent Marker", cursive;
+
+    font-size: 20px;
+}
+
+
+/* ================================
+   COSAS RANDOM
+================================ */
+
+.random {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.random span {
+
+    padding: 9px 13px;
+
+    border: 3px solid #170912;
+
+    box-shadow: 3px 3px 0 #170912;
+
+    font-family: "Permanent Marker", cursive;
+}
+
+.random span:nth-child(1) {
+    background: #ff476c;
+}
+
+.random span:nth-child(2) {
+    background: #53dfff;
+}
+
+.random span:nth-child(3) {
+    background: #ffe348;
+}
+
+.random span:nth-child(4) {
+    background: #b45cff;
+    color: white;
+}
+
+
+/* ================================
+   DETALLES 2000s
+================================ */
+
+.blinkie {
+
+    display: inline-block;
+
+    padding: 4px 8px;
+
+    background: #180813;
+
+    color: #ffea58;
+
+    border: 2px solid #ffea58;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    50% {
+        opacity: .35;
+    }
+
+}
+
+
+.contador {
+
+    margin-top: 15px;
+
+    font-family: monospace;
+
+    background: #180813;
+
+    color: #53dfff;
+
+    padding: 6px;
+
+    border: 2px solid #53dfff;
+
+    text-align: center;
+
+    font-size: 11px;
+}
+
+
+/* ================================
+   FRASE FINAL
+================================ */
+
+.frase-final {
+
+    padding: 25px;
+
+    text-align: center;
+
+    color: white;
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 20px;
+
+    text-shadow:
+        3px 3px 0 #270b19;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    color: white;
+
+    font-size: 11px;
+
+    font-family: monospace;
+}
+
+
+/* ================================
+   MÓVIL
+================================ */
+
+@media (max-width: 700px) {
+
+    .contenido {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .cabecera {
+
+        min-height: 310px;
+
+    }
+
+    .nombre {
+
+        font-size: 100px;
+
+        top: 75px;
+
+    }
+
+}
+
+/* ================================
+
+}
+
+@keyframes blinkie {
+
+    from {
+        opacity: .45;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}</style>
+
 </head>
+
 
 <body>
 
-<header>
 
-    <div class="mini">✦ my little corner of the internet ✦</div>
+<!-- =================================
+     ESTRELLAS
+================================= -->
 
-    <h1>music</h1>
+<div class="estrellas">
 
-    <p>songs that mean something to me</p>
+    <span style="top:3%;left:5%;font-size:20px;">★</span>
+    <span style="top:7%;left:18%;font-size:12px;">✦</span>
+    <span style="top:12%;left:34%;font-size:18px;">✧</span>
+    <span style="top:5%;left:65%;font-size:15px;">★</span>
+    <span style="top:15%;left:88%;font-size:22px;">✦</span>
+
+    <span style="top:27%;left:8%;font-size:15px;">✧</span>
+    <span style="top:32%;left:28%;font-size:21px;">★</span>
+    <span style="top:29%;left:55%;font-size:12px;">✦</span>
+    <span style="top:38%;left:92%;font-size:18px;">★</span>
+
+    <span style="top:48%;left:14%;font-size:20px;">✦</span>
+    <span style="top:53%;left:43%;font-size:13px;">✧</span>
+    <span style="top:59%;left:79%;font-size:20px;">★</span>
+
+    <span style="top:70%;left:5%;font-size:18px;">★</span>
+    <span style="top:76%;left:35%;font-size:14px;">✦</span>
+    <span style="top:82%;left:68%;font-size:20px;">✧</span>
+    <span style="top:91%;left:90%;font-size:17px;">★</span>
+
+</div>
+
+
+<div class="pagina">
+
+
+<!-- =================================
+     CABECERA
+================================= -->
+
+<header class="cabecera">
+
+    <div class="mancha mancha1"></div>
+    <div class="mancha mancha2"></div>
+    <div class="mancha mancha3"></div>
+
+    <div class="tag tag1">
+        ✦ SIRA ✦
+    </div>
+
+    <div class="tag tag2">
+        ★ YEAH ★
+    </div>
+
+    <div class="tag tag3">
+        ♥
+    </div>
+
+    <div class="pegatina pegatina1">
+        ★ ONLINE ★
+    </div>
+
+    <div class="pegatina pegatina2">
+        ♥ HI!!!
+    </div>
+
+    <div class="pegatina pegatina3">
+        2000s!!!
+    </div>
+
+    <div class="nombre">
+        SIRA
+    </div>
+
+    <div class="frase">
+        mi pequeño rincón de internet ★
+    </div>
 
 </header>
 
 
-<nav>
+<!-- =================================
+     MENÚ
+================================= -->
 
-    <a href="index.html">home</a>
-    <a href="musica.html">music</a>
+<nav class="menu">
+
+    <a href="#">INICIO</a>
+
+    <a href="diario.html">DIARIO</a>
+
+    <a href="#">MÚSICA</a>
+
+    <a href="#">ARTE</a>
+
+    <a href="#">SOBRE MÍ</a>
 
 </nav>
 
 
+<!-- =================================
+     CONTENIDO
+================================= -->
+
+<div class="contenido">
+
+
+<!-- PERFIL -->
+
+<aside class="perfil">
+
+    <div class="blinkie">
+        ★ BIENVENID@ ★
+    </div>
+
+    <h2>
+        HOLAA, SOY SIRAA
+    </h2>
+
+    <div class="foto">
+        ★
+    </div>
+
+    <p>
+        Bienvenid@ a mi pequeño
+        rincón de internet.
+    </p>
+
+    <p>
+        Me gustan el arte, la música,
+        los atardeceres, las estrellas
+        y las cosas un poco caóticas.
+    </p>
+
+    <p>
+        Este sitio es mío y aquí
+        puedo poner lo que quiera. La idea es crear un 
+        recuerdo de mi adolescencia aquí.
+    </p>
+
+    <div class="estado">
+        ● ACTUALMENTE ONLINE
+    </div>
+
+    <div class="contador">
+        VISITANTES: 001337
+    </div>
+
+</aside>
+
+
+<!-- PRINCIPAL -->
+
 <main>
 
-    <div class="intro">
 
-        <h2>♪ music is everything</h2>
+<!-- BIENVENIDA -->
+
+<section class="caja">
+
+    <h2>
+        ★ BIENVENID@ A MI BLOG
+    </h2>
+
+    <p>
+        Has encontrado mi pequeño
+        rincón perdido de internet.
+    </p>
+
+    <p>
+        Aquí voy a guardar pensamientos,
+        dibujos, recuerdos, música,
+        cosas que me gustan y cualquier
+        cosa random que me apetezca.
+    </p>
+
+    <p>
+        No sé exactamente en qué se
+        convertirá esta página...
+        pero esa es parte de la gracia.
+    </p>
+
+</section>
+
+
+<!-- DIARIO -->
+
+<section class="caja">
+
+    <h2>
+        📓 ÚLTIMA LIADA
+    </h2>
+
+    <div class="entrada">
+
+        <div class="fecha">
+            30 / 08 / 2026
+        </div>
+
+        <h3>
+            ★ POR FIN TENGO MI PROPIO BLOG ★
+        </h3>
 
         <p>
-            algunas canciones se quedan contigo mucho después de que terminen.
+            Después de muchísima desesperación
+            con GitHub, finalmente tengo
+            mi propio rincón de internet.
+        </p>
+
+        <p>
+            Ahoraa... se vienen cositas :).
+            ♡
         </p>
 
     </div>
 
+</section>
 
-    <!-- ARTISTAS -->
 
-    <section class="box">
+<!-- COSAS RANDOM -->
 
-        <div class="box-title">
-            <span class="symbol">✦</span>
-            <h2>my favorite bands</h2>
-        </div>
+<section class="caja">
 
-        <div class="artists">
+    <h2>
+        ✦ COSAS RANDOM
+    </h2>
 
-            <div class="artist">
+    <div class="random">
 
-                <!-- CAMBIA esta imagen por una tuya -->
-                <img src="foto-linkin-park.jpg" alt="Linkin Park">
+        <span>
+            ESTRELLAS ★
+        </span>
 
-                <div class="artist-name">
-                    Linkin Park
-                </div>
+        <span>
+            RECUERDOS
+        </span>
 
-                <div class="artist-desc">
-                    always on repeat ♡
-                </div>
+        <span>
+            ATARDECERES ☀
+        </span>
 
-            </div>
+        <span>
+            MÚSICA ♫
+        </span>
 
+    </div>
 
-            <div class="artist">
+</section>
 
-                <img src="foto-artista-2.jpg" alt="Artista">
 
-                <div class="artist-name">
-                    Dead By Sunrise
-                </div>
+<!-- RECORDATORIO -->
 
-                <div class="artist-desc">
-                    ★ favorite
-                </div>
+<section class="caja">
 
-            </div>
+    <h2>
+        ♥ UN PEQUEÑO RECORDATORIO
+    </h2>
 
+    <p>
+        No serás un adolescente toda tu vida.
+    </p>
 
-            <div class="artist">
+    <p>
+        A veces simplemente puedes
+        mirar el cielo, escuchar música
+        y disfrutar del momento.
+    </p>
 
-                <img src="foto-artista-3.jpg" alt="Artista">
+</section>
 
-                <div class="artist-name">
-                    Avril Lavigne
-                </div>
-
-                <div class="artist-desc">
-                    current obsession
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ÁLBUMES -->
-
-    <section class="box">
-
-        <div class="box-title">
-            <span class="symbol">✦</span>
-            <h2>albums i love</h2>
-        </div>
-
-        <div class="albums">
-
-            <div class="album">
-
-                <img src="album-1.jpg" alt="Álbum">
-
-                <div class="album-name">
-                    Meteora
-                </div>
-
-                <div class="album-artist">
-                    Linkin Park
-                </div>
-
-            </div>
-
-
-            <div class="album">
-
-                <img src="album-2.jpg" alt="Álbum">
-
-                <div class="album-name">
-                    Album name
-                </div>
-
-                <div class="album-artist">
-                    Artist
-                </div>
-
-            </div>
-
-
-            <div class="album">
-
-                <img src="album-3.jpg" alt="Álbum">
-
-                <div class="album-name">
-                    Album name
-                </div>
-
-                <div class="album-artist">
-                    Artist
-                </div>
-
-            </div>
-
-
-            <div class="album">
-
-                <img src="album-4.jpg" alt="Álbum">
-
-                <div class="album-name">
-                    Album name
-                </div>
-
-                <div class="album-artist">
-                    Artist
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CANCIONES -->
-
-    <section class="box">
-
-        <div class="box-title">
-            <span class="symbol">✦</span>
-            <h2>songs on repeat</h2>
-        </div>
-
-        <div class="songs">
-
-            <div class="song">
-
-                <div class="song-left">
-
-                    <span class="number">01</span>
-
-                    <div>
-                        <div class="song-name">
-                            Wolves
-                        </div>
-
-                        <div class="song-artist">
-                            Selena Gomez
-                        </div>
-                    </div>
-
-                </div>
-
-                <span class="star">★</span>
-
-            </div>
-
-
-            <div class="song">
-
-                <div class="song-left">
-
-                    <span class="number">02</span>
-
-                    <div>
-                        <div class="song-name">
-                            Fighting Myself
-                        </div>
-
-                        <div class="song-artist">
-                            Linkin Park
-                        </div>
-                    </div>
-
-                </div>
-
-                <span class="star">★</span>
-
-            </div>
-
-
-            <div class="song">
-
-                <div class="song-left">
-
-                    <span class="number">03</span>
-
-                    <div>
-                        <div class="song-name">
-                            My favorite song
-                        </div>
-
-                        <div class="song-artist">
-                            Artist
-                        </div>
-                    </div>
-
-                </div>
-
-                <span class="star">☆</span>
-
-            </div>
-
-
-            <div class="song">
-
-                <div class="song-left">
-
-                    <span class="number">04</span>
-
-                    <div>
-                        <div class="song-name">
-                            Nobody´s Home
-                        </div>
-
-                        <div class="song-artist">
-                            Avril Lavigne
-                        </div>
-                    </div>
-
-                </div>
-
-                <span class="star">☆</span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CANCIÓN DEL MOMENTO -->
-
-    <section class="box">
-
-        <div class="favorite">
-
-            <div class="big-star">
-                ★
-            </div>
-
-            <h3>song of the moment</h3>
-
-            <p>
-                aquí puedes escribir qué canción estás escuchando
-                últimamente y por qué significa algo para ti.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- FRASE -->
-
-    <section class="box">
-
-        <div class="quote">
-            “some songs feel like memories you haven't lived yet.”
-        </div>
-
-    </section>
 
 </main>
+
+</div>
+
+
+<!-- =================================
+     FRASE FINAL
+================================= -->
+
+<div class="frase-final">
+
+    ★ ✦ ★ ✦ ★
+
+    <br><br>
+
+    made somewhere between a sunset and midnight
+
+    <br><br>
+
+    ★ ✦ ★ ✦ ★
+
+</div>
 
 
 <footer>
 
-    ✦ made with music & too many feelings ✦
+    última actualización:
+    30 / 08 / 2026
+
+    <br><br>
+
+    ♥ gracias por leerme ♥
 
 </footer>
 
-</body>
-</html>
-```
 
+
+</script>
+   
+</body>
+
+</html>
